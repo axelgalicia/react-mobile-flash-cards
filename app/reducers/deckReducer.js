@@ -1,28 +1,28 @@
 import { initialDeckData } from '../config/initState';
-import { ADD_NEW_CARD, ADD_NEW_DECK } from '../actions/deckActions';
+import { ADDING_NEW_CARD, ADDING_NEW_DECK } from '../actions';
 
 const decks = (state = initialDeckData, action) => {
   switch (action.type) {
-    case ADD_NEW_CARD:
+    case ADDING_NEW_CARD:
       return {
         ...state,
-        [action.payload.title]: {
-          title: state[action.payload.title].title,
-          quizLength: state[action.payload.title].quizLength + 1,
+        [action.data.title]: {
+          title: state[action.data.title].title,
+          quizLength: state[action.data.title].quizLength + 1,
           questions: [
-            ...state[action.payload.title].questions,
+            ...state[action.data.title].questions,
             {
-              question: action.payload.question,
-              answer: action.payload.answer,
+              question: action.data.question,
+              answer: action.data.answer,
             },
           ],
         },
       };
-    case ADD_NEW_DECK:
+    case ADDING_NEW_DECK:
       return {
         ...state,
-        [action.payload.title]: {
-          ...action.payload,
+        [action.data.title]: {
+          ...action.data,
           quizLength: 0,
           questions: [],
         },

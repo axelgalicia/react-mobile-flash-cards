@@ -1,49 +1,53 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { TabNavigator, StackNavigator } from 'react-navigation';
+import Notification from '../components/Notification';
+
+import QuizMenu from '../components/QuizMenu';
 import { FontAwesome } from '@expo/vector-icons';
-import HomeView from '../containers/HomeView';
-import Settings from '../components/Settings';
-import QuizOverview from '../components/QuizOverview';
-import RunQuiz from '../containers/RunQuiz';
-import NewDeckForm from '../containers/NewDeckForm';
-import NewCardForm from '../containers/NewCardForm';
-import Notifications from '../containers/Notifications';
+import Home from '../generics/Home';
+import Notifications from '../generics/Notifications';
+
+import StartQuiz from '../generics/StartQuiz';
+import NewDeck from '../generics/NewDeck';
+import NewCard from '../generics/NewCard';
+import { TabNavigator, StackNavigator } from 'react-navigation';
+
 import {
-  NAV_HEADER_BACKGROUND,
-  NAV_HEADER_TINT,
-  TAB_BAR_ACTIVE_TINT_ANDROID,
-  TAB_BAR_ACTIVE_TINT_IOS,
   TAB_BAR_BACKGROUND_ANDROID,
   TAB_BAR_BACKGROUND_IOS,
+  NAV_HEADER_BACKGROUND,
+  TAB_BAR_ACTIVE_TINT_IOS,
+  NAV_HEADER_TINT,
+  TAB_BAR_ACTIVE_TINT_ANDROID,
+
 } from './colours';
 
 export const Tabs = TabNavigator(
   {
-    HomeView: {
-      screen: HomeView,
+    Home: {
+      screen: Home,
       navigationOptions: {
         tabBarLabel: 'Home',
         tabBarIcon: ({ tintColor }) => (
-          <FontAwesome name="home" size={30} color={tintColor} />
+          <FontAwesome size={31} name="home"  color={tintColor} />
         ),
       },
     },
-    NewDeckForm: {
-      screen: NewDeckForm,
+    NewDeck: {
+      screen: NewDeck,
       navigationOptions: {
-        tabBarLabel: 'Create quiz',
+        tabBarLabel: 'New Deck',
         tabBarIcon: ({ tintColor }) => (
-          <FontAwesome name="plus-square" size={30} color={tintColor} />
+          <FontAwesome size={31} name="plus-square"  color={tintColor} />
         ),
       },
     },
-    Settings: {
-      screen: Settings,
+    Notification: {
+      screen: Notification,
       navigationOptions: {
-        tabBarLabel: 'Settings',
+        tabBarLabel: 'Notifications',
         tabBarIcon: ({ tintColor }) => (
-          <FontAwesome name="cog" size={30} color={tintColor} />
+          <FontAwesome name="cog" size={31} color={tintColor} />
         ),
       },
     },
@@ -81,20 +85,20 @@ export const MainNavigator = StackNavigator({
   Home: {
     screen: Tabs,
   },
-  QuizOverview: {
-    screen: QuizOverview,
+  QuizMenu: {
+    screen: QuizMenu,
     navigationOptions: {
       title: 'Deck',
     },
   },
   Quiz: {
-    screen: RunQuiz,
+    screen: StartQuiz,
     navigationOptions: {
       title: 'Quiz',
     },
   },
-  NewDeckForm: {
-    screen: NewDeckForm,
+  NewDeck: {
+    screen: NewDeck,
     navigationOptions: {
       headerTintColor: NAV_HEADER_TINT,
       headerStyle: {
@@ -102,8 +106,8 @@ export const MainNavigator = StackNavigator({
       },
     },
   },
-  NewCardForm: {
-    screen: NewCardForm,
+  NewCard: {
+    screen: NewCard,
     navigationOptions: {
       headerTintColor: NAV_HEADER_TINT,
       headerStyle: {
