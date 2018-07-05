@@ -23,6 +23,15 @@ To get started and use the application just follow the below steps:
 
  - For testing purposes the notification is being set 1 minute after clicking set Notification under Settings > Notifications menu. A notification will appear after 1 minute of setting it.
 
+ ## Tested
+
+ - This application has been tested on Android Device and iOS Emulator. Keep in mind that notifications might not work in iOS Emulator. 
+
+ ## Using Expo to run the app
+
+ - The application can be run in a device using expo app.
+ [Expo Documentation](https://docs.expo.io/versions/v28.0.0/introduction/installation)
+
 
 **Author**: Axel Galicia, axelgalicia@gmail.com
 Last Version: 1.0.0
