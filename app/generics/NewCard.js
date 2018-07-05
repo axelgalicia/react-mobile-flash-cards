@@ -18,18 +18,14 @@ class NewCard extends Component {
     if (this.state.question.length < 2) {
       return Alert.alert(
         'Your question',
-        'needs more than 2 characters.',
-        { text: 'OK' },
-        { cancelable: false }
+        'needs more than 2 characters.'
       );
     }
 
     if (this.state.answer.length < 2) {
       return Alert.alert(
         'Your answer',
-        'needs more than 2 characters.',
-        { text: 'OK' },
-        { cancelable: false }
+        'needs more than 2 characters.'
       );
     }
 

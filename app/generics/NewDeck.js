@@ -10,13 +10,11 @@ class NewDeck extends Component {
     title: '',
   };
 
-  onPress = (data) => {
+  handleOnPress = (data) => {
     if (this.state.title.length < 1) {
       return Alert.alert(
-        'Your question',
-        'needs more than 1 character.',
-        { text: 'OK' },
-        { cancelable: false }
+        'Your Deck Title cannot be empty',
+        'Please enter a valid Title'
       );
     }
     const { title } = this.state;
@@ -33,7 +31,7 @@ class NewDeck extends Component {
           placeholder="Title"
           onChangeText={title => this.setState({ title })}
         />
-        <GenericButton onPress={() => this.onPress(this.state)} />
+        <GenericButton onPress={() => this.handleOnPress(this.state)} />
       </View>
     );
   }
